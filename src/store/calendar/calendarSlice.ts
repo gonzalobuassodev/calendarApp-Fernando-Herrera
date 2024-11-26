@@ -2,13 +2,13 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { addHours } from 'date-fns';
 
-export interface State {
+export interface CalendarState {
     events: Event[];
     activeEvent: Event;
 }
 
 export interface Event {
-    _id?: number;
+    _id?: string;
     title: string;
     notes: string;
     start: string;
@@ -23,7 +23,7 @@ interface User {
 }
 
 const tempEvent: Event = {
-    _id: 123,
+    _id: '123',
     title: 'Nota 1',
     notes: 'Esta es la nota en duro',
     start: new Date("2024-11-24T15:20:46.003Z"
@@ -50,7 +50,7 @@ export const emptyEvent: Event = {
     }
 }
 
-const initialState: State = {
+const initialState: CalendarState = {
     events: [tempEvent],
     activeEvent: emptyEvent,
 }
@@ -73,7 +73,7 @@ export const calendarSlice = createSlice({
         onSetActiveEvent: (state, action: PayloadAction<Event>) => {
             state.activeEvent = action.payload;
         },
-        onDeleteEvent: (state, action: PayloadAction<number>) => {
+        onDeleteEvent: (state, action: PayloadAction<string>) => {
             state.events = state.events.filter((event) => event._id !== action.payload)
         },
         onClearEventActive: (state) => {

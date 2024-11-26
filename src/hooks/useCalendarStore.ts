@@ -13,7 +13,7 @@ export const useCalendarStore = () => {
       dispatch(updateEvent(event));
     } else {
       //!Creando
-      dispatch(addEvent({ ...event, _id: new Date().getTime() }))
+      dispatch(addEvent({ ...event, _id: new Date().getTime().toString() }))
     }
   }
 

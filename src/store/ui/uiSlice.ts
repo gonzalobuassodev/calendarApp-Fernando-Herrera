@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-export interface State {
+export interface UiState {
     isDateModalOpen: boolean;
 }
 
-const initialState: State = {
+const initialState: UiState = {
     isDateModalOpen: false,
 }
 
