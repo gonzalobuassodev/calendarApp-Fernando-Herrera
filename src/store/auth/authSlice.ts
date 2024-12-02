@@ -10,7 +10,7 @@ export interface AuthState {
 }
 
 interface User {
-    id: string;
+    _id: string;
     name: string;
     email: string;
 }
@@ -18,7 +18,7 @@ interface User {
 const initialState: AuthState = {
     status: AuthStatus.notAuthenticated,
     user: {
-        id: '',
+        _id: '',
         name: '',
         email: '',
     },
@@ -32,7 +32,7 @@ export const authSlice = createSlice({
         onChecking: (state) => {
             state.status = AuthStatus.checking;
             state.user = {
-                id: '',
+                _id: '',
                 name: '',
                 email: '',
             }
@@ -46,7 +46,7 @@ export const authSlice = createSlice({
         onLogout: (state, action: PayloadAction<string>) => {
             state.status = AuthStatus.notAuthenticated;
             state.user = {
-                id: '',
+                _id: '',
                 name: '',
                 email: '',
             }
